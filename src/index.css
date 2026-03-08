@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default: dark theme (image 1) */
+    --background: 220 20% 4%;
+    --foreground: 40 30% 95%;
+
+    --card: 220 15% 8%;
+    --card-foreground: 40 30% 95%;
+
+    --popover: 220 15% 8%;
+    --popover-foreground: 40 30% 95%;
+
+    --primary: 30 90% 55%;
+    --primary-foreground: 220 20% 4%;
+
+    --secondary: 215 60% 25%;
+    --secondary-foreground: 40 30% 95%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 35 95% 60%;
+    --accent-foreground: 220 20% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 30 90% 55%;
+
+    --radius: 0.75rem;
+
+    --saffron: 30 90% 55%;
+    --saffron-light: 35 95% 65%;
+    --saffron-dark: 25 85% 40%;
+    --gold: 42 90% 55%;
+    --gold-light: 45 95% 70%;
+    --deep-blue: 215 60% 25%;
+    --deep-blue-dark: 220 65% 12%;
+    --deep-blue-light: 210 50% 40%;
+    --warm-white: 40 30% 95%;
+    --cream: 38 40% 90%;
+
+    --gradient-saffron: linear-gradient(135deg, hsl(30 90% 55%), hsl(42 90% 55%));
+    --gradient-hero: linear-gradient(
+      180deg,
+      hsla(220, 20%, 4%, 0) 0%,
+      hsla(220, 20%, 4%, 0.8) 60%,
+      hsl(220, 20%, 4%) 100%
+    );
+    --gradient-glass: linear-gradient(135deg, hsla(40, 30%, 95%, 0.08) 0%, hsla(40, 30%, 95%, 0.02) 100%);
+    --gradient-card: linear-gradient(160deg, hsla(30, 90%, 55%, 0.1) 0%, hsla(215, 60%, 25%, 0.1) 100%);
+
+    --shadow-glow: 0 0 30px hsla(30, 90%, 55%, 0.3);
+    --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.4);
+    --shadow-hover: 0 16px 48px hsla(30, 90%, 55%, 0.2);
+
+    --font-display: 'Cinzel', serif;
+    --font-body: 'Outfit', sans-serif;
+    --font-sanskrit: 'Noto Sans Devanagari', sans-serif;
+
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 40 30% 95%;
+    --sidebar-primary: 30 90% 55%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 40 30% 95%;
+    --sidebar-border: 220 15% 15%;
+    --sidebar-ring: 30 90% 55%;
+  }
+
+  /* Light / ancient parchment theme (image 2 + pattern) */
+  .theme-light {
+    --background: 38 60% 94%;
+    --foreground: 220 40% 12%;
+
+    --card: 40 70% 98%;
+    --card-foreground: 220 45% 14%;
+
+    --popover: 40 70% 98%;
+    --popover-foreground: 220 40% 20%;
+
+    --primary: 30 75% 45%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 36 45% 80%;
+    --secondary-foreground: 220 40% 20%;
+
+    --muted: 38 45% 88%;
+    --muted-foreground: 220 30% 22%;
+
+    --accent: 32 70% 50%;
+    --accent-foreground: 40 30% 97%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 35 30% 75%;
+    --input: 35 30% 75%;
+    --ring: 30 70% 45%;
+
+    --saffron: 32 80% 52%;
+    --saffron-light: 36 90% 70%;
+    --saffron-dark: 26 75% 42%;
+    --gold: 40 85% 55%;
+    --gold-light: 42 90% 72%;
+    --deep-blue: 220 35% 26%;
+    --deep-blue-dark: 220 40% 20%;
+    --deep-blue-light: 215 40% 36%;
+    --warm-white: 40 35% 96%;
+    --cream: 38 55% 90%;
+
+    --gradient-saffron: linear-gradient(135deg, hsl(32 80% 52%), hsl(40 85% 55%));
+    --gradient-hero: radial-gradient(circle at top, hsla(40, 80%, 90%, 0.85) 0%, hsl(38, 55%, 88%) 45%, hsl(36, 40%, 84%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(40, 40%, 96%, 0.9) 0%, hsla(38, 55%, 92%, 0.8) 100%);
+    --gradient-card: linear-gradient(160deg, hsla(36, 60%, 92%, 0.9) 0%, hsla(32, 40%, 88%, 0.9) 100%);
+
+    --shadow-glow: 0 0 30px hsla(32, 80%, 60%, 0.35);
+    --shadow-card: 0 10px 30px hsla(32, 35%, 40%, 0.25);
+    --shadow-hover: 0 18px 40px hsla(32, 80%, 55%, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(40, 30%, 95%, 0.08);
+  }
+
+  .gradient-text {
+    background: var(--gradient-saffron);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-border {
+    box-shadow: var(--shadow-glow);
+    border: 1px solid hsla(30, 90%, 55%, 0.3);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-500;
+  }
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .sanskrit-text {
+    font-family: var(--font-sanskrit);
+  }
+
+  .scroll-horizontal {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .scroll-horizontal::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-horizontal > * {
+    scroll-snap-align: start;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .pattern-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a053' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .theme-light .pattern-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e3cda4' fill-opacity='0.45'%3E%3Cpath d='M40 4c-4 6-10 10-18 12 4 3 6 7 6 12-8-2-14-6-18-12-4 6-10 10-18 12 4 3 6 7 6 12 8-2 14-6 18-12 4 6 10 10 18 12-4-5-6-9-6-12 0-5 2-9 6-12zm24 28c-3 4-7 6-12 6 2 4 2 8 0 12 5 0 9 2 12 6 3-4 7-6 12-6-2-4-2-8 0-12-5 0-9-2-12-6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .nav-dropdown {
+    @apply absolute top-full left-0 min-w-[240px] py-2 rounded-lg opacity-0 invisible translate-y-2 transition-all duration-300;
+    background: hsla(220, 15%, 8%, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsla(30, 90%, 55%, 0.15);
+    box-shadow: 0 20px 60px hsla(0, 0%, 0%, 0.5);
+  }
+
+  .nav-item:hover .nav-dropdown {
+    @apply opacity-100 visible translate-y-0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px hsla(30, 90%, 55%, 0.2); }
+  50% { box-shadow: 0 0 40px hsla(30, 90%, 55%, 0.4); }
+}
+
+@keyframes particle-drift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.5); opacity: 0; }
+}
