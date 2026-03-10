@@ -32,7 +32,7 @@ const IKSDomainsSection = () => {
   };
 
   return (
-    <section id="iks-domains" className="py-24 relative" ref={ref}>
+    <section id="iks-domains" className="py-24 relative bg-deep-blue-dark text-foreground" ref={ref}>
       <div className="container mx-auto px-4 mb-10">
         <motion.p
           initial={{ opacity: 0 }}

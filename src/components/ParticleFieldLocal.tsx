@@ -62,7 +62,7 @@ const ParticleFieldLocal = ({
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         size: Math.random() * 1.5 + 0.5,
-        alpha: Math.random() * 0.5 + 0.35,
+        alpha: Math.random() * 0.35 + 0.4,
         base,
       });
     }

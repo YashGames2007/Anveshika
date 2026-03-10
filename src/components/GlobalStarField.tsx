@@ -19,7 +19,7 @@ const GlobalStarField = () => {
   // Stars should show on all pages, but use different palettes for light/dark.
   const starColors = isDark
     ? ["#ffffff", "#ffd57f"]
-    : ["#7b1f25", "#f7f2e7"];
+    : ["#5a121d", "#d0bda4"];
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10">

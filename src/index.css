@@ -79,22 +79,22 @@
   /* Light / ancient parchment theme (image 2 + pattern) */
   .theme-light {
     --background: 38 60% 94%;
-    --foreground: 348 50% 26%;
+    --foreground: 38 80% 30%;
 
     --card: 40 70% 98%;
-    --card-foreground: 348 50% 26%;
+    --card-foreground: 38 80% 30%;
 
     --popover: 40 70% 98%;
-    --popover-foreground: 348 50% 26%;
+    --popover-foreground: 38 80% 30%;
 
     --primary: 30 75% 45%;
     --primary-foreground: 40 30% 97%;
 
     --secondary: 36 45% 80%;
-    --secondary-foreground: 348 45% 32%;
+    --secondary-foreground: 348 40% 26%;
 
     --muted: 38 45% 88%;
-    --muted-foreground: 348 35% 42%;
+    --muted-foreground: 348 35% 36%;
 
     --accent: 32 70% 50%;
     --accent-foreground: 40 30% 97%;
@@ -136,6 +136,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    font-size: 1.125rem; /* slightly larger base text */
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {

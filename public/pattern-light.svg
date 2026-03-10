@@ -1,0 +1,19 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <g id="dot">
+      <circle cx="2" cy="2" r="2" fill="#bfa57a" opacity="0.35"/>
+    </g>
+    <g id="star">
+      <path d="M0 8 L4 0 L8 8 L0 3 L8 3 Z" fill="#7b1f25" opacity="0.25"/>
+    </g>
+  </defs>
+  <rect width="80" height="80" fill="#f7f0e9"/>
+  <use href="#dot" x="10" y="10" />
+  <use href="#dot" x="30" y="30" />
+  <use href="#dot" x="50" y="50" />
+  <use href="#dot" x="70" y="70" />
+  <use href="#star" x="20" y="15" />
+  <use href="#star" x="55" y="40" />
+  <use href="#star" x="15" y="55" />
+  <use href="#star" x="60" y="20" />
+</svg>

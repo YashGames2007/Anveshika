@@ -7,7 +7,7 @@ const CTASection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="cta" className="py-24 relative overflow-hidden" ref={ref}>
+    <section id="cta" className="py-24 relative overflow-hidden bg-background text-foreground" ref={ref}>
       {/* Glow BG */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
@@ -46,27 +46,48 @@ const CTASection = () => {
           transition={{ delay: 0.4 }}
           className="flex flex-wrap justify-center gap-4"
         >
-          <a href="#" className="group px-8 py-4 rounded-xl font-medium bg-primary text-primary-foreground transition-all duration-300 hover:shadow-[0_0_30px_hsla(30,90%,55%,0.4)] animate-glow-pulse">
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            animate={{ y: [0, -14, 0] }}
+            transition={{ repeat: Infinity, repeatType: "mirror", duration: 4.6, ease: "easeInOut" }}
+            className="group inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium bg-gradient-to-r from-saffron to-gold text-primary-foreground shadow-lg shadow-saffron/30 hover:shadow-[0_0_40px_hsla(30,90%,55%,0.45)] transition-all duration-300 will-change-transform"
+          >
             <span className="flex items-center gap-2">
               <Sparkles className="w-5 h-5" />
               Join Anveshika
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
-          <a href="#" className="group px-8 py-4 rounded-xl font-medium glass-card text-foreground hover:border-primary/30 transition-all duration-300">
+          </motion.a>
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            animate={{ y: [0, -14, 0] }}
+            transition={{ repeat: Infinity, repeatType: "mirror", duration: 5, ease: "easeInOut", delay: 0.3 }}
+            className="group inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium glass-card text-foreground hover:border-primary/30 transition-all duration-300 will-change-transform"
+          >
             <span className="flex items-center gap-2">
               <FlaskConical className="w-5 h-5" />
               Start Research
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
-          <a href="#" className="group px-8 py-4 rounded-xl font-medium border border-primary/30 text-primary hover:bg-primary/10 transition-all duration-300">
+          </motion.a>
+          <motion.a
+            href="#"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            animate={{ y: [0, -14, 0] }}
+            transition={{ repeat: Infinity, repeatType: "mirror", duration: 5.2, ease: "easeInOut", delay: 0.5 }}
+            className="group inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium border border-primary/30 text-primary hover:bg-primary/10 transition-all duration-300 will-change-transform"
+          >
             <span className="flex items-center gap-2">
               <Lightbulb className="w-5 h-5" />
               Explore Innovation
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
+          </motion.a>
         </motion.div>
       </div>
     </section>

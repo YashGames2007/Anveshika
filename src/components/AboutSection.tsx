@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BookOpen, Cpu, Compass } from "lucide-react";
 import { useTheme } from "@/theme/ThemeContext";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { useWelcomeDialog } from "@/components/WelcomeDialog";
 
 const highlights = [
   {
@@ -32,12 +26,12 @@ const AboutSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-120px" });
   const { isDark } = useTheme();
-  const [logoModalOpen, setLogoModalOpen] = useState(false);
+  const { openDialog } = useWelcomeDialog();
 
   const logoSrc = isDark ? "/logo-dark.jpeg" : "/logo-light.jpeg";
 
   return (
-    <section id="about" className="py-24 relative pattern-overlay">
+    <section id="about" className="py-24 relative bg-background text-foreground">
       <div className="container mx-auto px-4" ref={ref}>
         {/* Section label */}
         <motion.p
@@ -109,7 +103,7 @@ const AboutSection = () => {
               {/* Clickable medallion with up-down motion */}
               <motion.button
                 type="button"
-                onClick={() => setLogoModalOpen(true)}
+                onClick={openDialog}
                 className="relative rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background cursor-pointer"
                 aria-label="Open Anveshika logo and welcome"
               >
@@ -164,29 +158,6 @@ const AboutSection = () => {
         </motion.div>
       </div>
 
-      {/* Welcome popup when logo is clicked */}
-      <Dialog open={logoModalOpen} onOpenChange={setLogoModalOpen}>
-        <DialogContent className="max-w-md overflow-hidden border-primary/30 bg-card shadow-2xl sm:rounded-2xl p-0 gap-0">
-          <div className="relative bg-gradient-to-b from-card to-muted/30 pt-8 pb-8 px-6 text-center">
-            <div className="mx-auto mb-6 w-36 h-36 rounded-full bg-white flex items-center justify-center overflow-hidden border-2 border-primary/40 shadow-lg">
-              <img
-                src={logoSrc}
-                alt="Anveshika"
-                className="w-[90%] h-[90%] object-cover rounded-full"
-              />
-            </div>
-            <p className="sanskrit-text text-primary/80 text-sm mb-2">
-              अन्वेषिका — जिज्ञासा, अन्वेषण, अभियान
-            </p>
-            <DialogTitle className="font-display text-2xl md:text-3xl font-bold gradient-text">
-              Welcome to Anveshika
-            </DialogTitle>
-            <DialogDescription className="text-muted-foreground mt-2 text-sm md:text-base font-display">
-              Where ancient wisdom meets modern innovation.
-            </DialogDescription>
-          </div>
-        </DialogContent>
-      </Dialog>
     </section>
   );
 };

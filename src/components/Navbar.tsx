@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "@/theme/ThemeContext";
+import { useWelcomeDialog } from "@/components/WelcomeDialog";
 
 const menuItems = [
   {
@@ -71,6 +72,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMobileSub, setOpenMobileSub] = useState<string | null>(null);
   const { isDark, toggle } = useTheme();
+  const { openDialog } = useWelcomeDialog();
 
   const logoSrc = isDark ? "/logo-dark.jpeg" : "/logo-light.jpeg";
 
@@ -93,7 +95,14 @@ const Navbar = () => {
     >
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-3">
+        <a
+          href="#hero"
+          onClick={(e) => {
+            e.preventDefault();
+            openDialog();
+          }}
+          className="flex items-center gap-3"
+        >
           <img
             src={logoSrc}
             alt="Anveshika"
@@ -109,7 +118,7 @@ const Navbar = () => {
               <div key={item.label} className="nav-item relative">
                 <a
                   href={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors rounded-lg hover:bg-primary/5"
+                  className="flex items-center gap-1 px-4 py-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors rounded-lg hover:bg-primary/5"
                 >
                   {item.label}
                   {item.submenu && <ChevronDown className="w-3.5 h-3.5" />}
@@ -120,7 +129,7 @@ const Navbar = () => {
                       <a
                         key={sub.label}
                         href={sub.href}
-                        className="block px-4 py-2.5 text-sm text-foreground/90 hover:text-primary hover:bg-primary/5 transition-all"
+                        className="block px-4 py-2.5 text-base text-foreground/90 hover:text-primary hover:bg-primary/5 transition-all"
                       >
                         {sub.label}
                       </a>
@@ -164,9 +173,9 @@ const Navbar = () => {
                         setMobileOpen(false);
                       }
                     }}
-                    className="w-full flex items-center justify-between px-3 py-3 text-foreground/80 hover:text-primary transition-colors rounded-lg"
+                    className="w-full flex items-center justify-between px-3 py-3 text-base text-foreground/80 hover:text-primary transition-colors rounded-lg"
                   >
-                    <span className="font-medium">{item.label}</span>
+                    <span className="font-medium text-base">{item.label}</span>
                     {item.submenu && (
                       <ChevronDown className={`w-4 h-4 transition-transform ${openMobileSub === item.label ? "rotate-180" : ""}`} />
                     )}
@@ -184,7 +193,7 @@ const Navbar = () => {
                             key={sub.label}
                             href={sub.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block px-3 py-2.5 text-sm text-foreground/90 hover:text-primary transition-colors"
+                            className="block px-3 py-2.5 text-base text-foreground/90 hover:text-primary transition-colors"
                           >
                             {sub.label}
                           </a>

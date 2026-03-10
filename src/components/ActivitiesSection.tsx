@@ -23,7 +23,7 @@ const ActivitiesSection = () => {
   };
 
   return (
-    <section id="activities" className="py-24 pattern-overlay" ref={ref}>
+    <section id="activities" className="py-24 bg-deep-blue-dark text-foreground" ref={ref}>
       <div className="container mx-auto px-4 mb-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -59,8 +59,8 @@ const ActivitiesSection = () => {
             transition={{ delay: 0.08 * i }}
             className="shrink-0 w-[280px] md:w-[320px] glass-card rounded-2xl p-8 hover-lift group cursor-pointer"
           >
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 group-hover:scale-110 transition-all">
-              <a.icon className="w-7 h-7 text-primary" />
+            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 transition-all group-hover:bg-primary/20 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(123,31,37,0.45)]">
+              <a.icon className="w-7 h-7 text-primary transition-colors group-hover:text-[hsl(348,40%,20%)]" />
             </div>
             <h3 className="font-display text-lg font-semibold mb-2 text-foreground">{a.title}</h3>
             <p className="text-muted-foreground text-sm mb-5">{a.desc}</p>

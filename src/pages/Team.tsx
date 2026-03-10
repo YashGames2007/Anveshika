@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ParticleField from "@/components/ParticleField";
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 
@@ -139,15 +138,10 @@ const getInitials = (name: string) =>
 
 const Team = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navbar />
 
       <main className="relative min-h-screen pt-24 pb-16">
-        {/* Starry background */}
-        <div className="absolute inset-0">
-          <ParticleField />
-          <div className="absolute inset-0 pattern-overlay opacity-20" />
-        </div>
 
         <div className="relative z-10 container mx-auto px-4">
           <motion.div

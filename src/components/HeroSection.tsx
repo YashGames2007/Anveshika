@@ -63,27 +63,48 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-wrap justify-center gap-4"
         >
-          <a href="#iks-domains" className="group relative px-8 py-4 rounded-xl font-medium bg-primary text-primary-foreground overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_hsla(30,90%,55%,0.4)]">
+          <motion.a
+            href="#iks-domains"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, repeatType: "mirror", duration: 4.5 }}
+            className="group relative inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium bg-primary text-primary-foreground overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_hsla(30,90%,55%,0.4)] will-change-transform"
+          >
             <span className="relative z-10 flex items-center gap-2">
               <Compass className="w-5 h-5" />
               Explore Knowledge
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
-          <a href="#about" className="group px-8 py-4 rounded-xl font-medium glass-card text-foreground hover:border-primary/30 transition-all duration-300">
+          </motion.a>
+          <motion.a
+            href="#about"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, repeatType: "mirror", duration: 4.7, delay: 0.2 }}
+            className="group inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium glass-card text-foreground hover:border-primary/30 transition-all duration-300 will-change-transform"
+          >
             <span className="flex items-center gap-2">
               <BookOpen className="w-5 h-5" />
               Discover IKS
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
-          <a href="#cta" className="group px-8 py-4 rounded-xl font-medium border border-primary/30 text-primary hover:bg-primary/10 transition-all duration-300">
+          </motion.a>
+          <motion.a
+            href="#cta"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, repeatType: "mirror", duration: 4.9, delay: 0.4 }}
+            className="group inline-flex items-center justify-center px-8 py-4 rounded-xl font-medium border border-primary/30 text-primary hover:bg-primary/10 transition-all duration-300 will-change-transform"
+          >
             <span className="flex items-center gap-2">
               <Users className="w-5 h-5" />
               Join Anveshika
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-          </a>
+          </motion.a>
         </motion.div>
 
         {/* Scroll indicator */}

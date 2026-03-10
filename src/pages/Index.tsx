@@ -8,10 +8,12 @@ import ActivitiesSection from "@/components/ActivitiesSection";
 import ImpactSection from "@/components/ImpactSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import GlobalStarField from "@/components/GlobalStarField";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
+      <GlobalStarField />
       <Navbar />
       <HeroSection />
       <AboutSection />

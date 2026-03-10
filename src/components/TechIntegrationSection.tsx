@@ -15,7 +15,7 @@ const TechIntegrationSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="tech-integration" className="py-24 relative pattern-overlay" ref={ref}>
+    <section id="tech-integration" className="py-24 relative bg-background text-foreground" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -42,8 +42,8 @@ const TechIntegrationSection = () => {
               transition={{ delay: 0.1 * i }}
               className="glass-card rounded-2xl p-8 hover-lift group"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                <item.icon className="w-7 h-7 text-primary" />
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 transition-all group-hover:bg-primary/20 group-hover:shadow-[0_0_20px_rgba(123,31,37,0.45)]">
+                <item.icon className="w-7 h-7 text-primary transition-colors group-hover:text-[hsl(348,40%,20%)]" />
               </div>
               <h3 className="font-display text-xl font-semibold mb-3 text-foreground">{item.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
