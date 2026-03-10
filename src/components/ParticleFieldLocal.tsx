@@ -5,13 +5,40 @@ interface ParticleFieldLocalProps {
   height: number;
   className?: string;
   particleCount?: number;
+  /** Hex color values: first one is most common, second is less common (e.g., 70/30 split) */
+  starColors?: string[];
+  /** Optional weights matching `starColors`. Must sum to 1. */
+  starWeights?: number[];
 }
+
+const hexToRgb = (hex: string) => {
+  const cleaned = hex.replace("#", "");
+  const bigint = parseInt(cleaned, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return { r, g, b };
+};
+
+const pickWeightedIndex = (weights: number[]) => {
+  const sum = weights.reduce((a, b) => a + b, 0);
+  const normalized = weights.map((w) => w / sum);
+  const rand = Math.random();
+  let acc = 0;
+  for (let i = 0; i < normalized.length; i++) {
+    acc += normalized[i];
+    if (rand < acc) return i;
+  }
+  return normalized.length - 1;
+};
 
 const ParticleFieldLocal = ({
   width,
   height,
   className = "",
   particleCount = 50,
+  starColors = ["#8f1f25", "#f7f2e7"],
+  starWeights = [0.7, 0.3],
 }: ParticleFieldLocalProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -24,15 +51,19 @@ const ParticleFieldLocal = ({
     canvas.width = width;
     canvas.height = height;
 
-    const particles: { x: number; y: number; vx: number; vy: number; size: number; alpha: number }[] = [];
+    const baseColors = starColors.map(hexToRgb);
+
+    const particles: { x: number; y: number; vx: number; vy: number; size: number; alpha: number; base: { r: number; g: number; b: number } }[] = [];
     for (let i = 0; i < particleCount; i++) {
+      const base = baseColors[pickWeightedIndex(starWeights)];
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         size: Math.random() * 1.5 + 0.5,
-        alpha: Math.random() * 0.5 + 0.15,
+        alpha: Math.random() * 0.5 + 0.35,
+        base,
       });
     }
 
@@ -49,7 +80,7 @@ const ParticleFieldLocal = ({
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(30, 90%, 60%, ${p.alpha})`;
+        ctx.fillStyle = `rgba(${p.base.r}, ${p.base.g}, ${p.base.b}, ${p.alpha})`;
         ctx.fill();
       });
 
@@ -59,10 +90,13 @@ const ParticleFieldLocal = ({
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 120) {
+            const avgR = Math.round((particles[i].base.r + particles[j].base.r) / 2);
+            const avgG = Math.round((particles[i].base.g + particles[j].base.g) / 2);
+            const avgB = Math.round((particles[i].base.b + particles[j].base.b) / 2);
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(30, 70%, 55%, ${0.1 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(${avgR}, ${avgG}, ${avgB}, ${0.2 * (1 - dist / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

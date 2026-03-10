@@ -79,22 +79,22 @@
   /* Light / ancient parchment theme (image 2 + pattern) */
   .theme-light {
     --background: 38 60% 94%;
-    --foreground: 220 40% 12%;
+    --foreground: 348 50% 26%;
 
     --card: 40 70% 98%;
-    --card-foreground: 220 45% 14%;
+    --card-foreground: 348 50% 26%;
 
     --popover: 40 70% 98%;
-    --popover-foreground: 220 40% 20%;
+    --popover-foreground: 348 50% 26%;
 
     --primary: 30 75% 45%;
     --primary-foreground: 40 30% 97%;
 
     --secondary: 36 45% 80%;
-    --secondary-foreground: 220 40% 20%;
+    --secondary-foreground: 348 45% 32%;
 
     --muted: 38 45% 88%;
-    --muted-foreground: 220 30% 22%;
+    --muted-foreground: 348 35% 42%;
 
     --accent: 32 70% 50%;
     --accent-foreground: 40 30% 97%;

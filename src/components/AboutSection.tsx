@@ -3,7 +3,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { BookOpen, Cpu, Compass } from "lucide-react";
 import { useTheme } from "@/theme/ThemeContext";
-import ParticleFieldLocal from "@/components/ParticleFieldLocal";
 import {
   Dialog,
   DialogContent,
@@ -104,18 +103,6 @@ const AboutSection = () => {
             className="flex justify-center"
           >
             <div className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] flex items-center justify-center">
-              {/* Stars in motion around logo (dark mode only) */}
-              {isDark && (
-                <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-                  <ParticleFieldLocal
-                    width={320}
-                    height={320}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                    particleCount={45}
-                  />
-                </div>
-              )}
-
               {/* Soft outer glow ring */}
               <div className="absolute inset-0 translate-y-4 blur-2xl rounded-full bg-gradient-to-tr from-saffron/35 via-gold/30 to-deep-blue/40 opacity-70 pointer-events-none" />
 
