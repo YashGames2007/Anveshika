@@ -120,7 +120,7 @@ const Navbar = () => {
                       <a
                         key={sub.label}
                         href={sub.href}
-                        className="block px-4 py-2.5 text-sm text-foreground/70 hover:text-primary hover:bg-primary/5 transition-all"
+                        className="block px-4 py-2.5 text-sm text-foreground/90 hover:text-primary hover:bg-primary/5 transition-all"
                       >
                         {sub.label}
                       </a>
@@ -184,7 +184,7 @@ const Navbar = () => {
                             key={sub.label}
                             href={sub.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block px-3 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            className="block px-3 py-2.5 text-sm text-foreground/90 hover:text-primary transition-colors"
                           >
                             {sub.label}
                           </a>

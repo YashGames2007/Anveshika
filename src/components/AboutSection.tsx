@@ -140,7 +140,7 @@ const AboutSection = () => {
                     <img
                       src={logoSrc}
                       alt="Anveshika emblem"
-                      className="w-[92%] h-[92%] object-contain drop-shadow-[0_8px_18px_rgba(0,0,0,0.3)]"
+                      className="w-[92%] h-[92%] object-cover rounded-full drop-shadow-[0_8px_18px_rgba(0,0,0,0.3)]"
                     />
                   </div>
                 </motion.div>
@@ -185,7 +185,7 @@ const AboutSection = () => {
               <img
                 src={logoSrc}
                 alt="Anveshika"
-                className="w-[90%] h-[90%] object-contain"
+                className="w-[90%] h-[90%] object-cover rounded-full"
               />
             </div>
             <p className="sanskrit-text text-primary/80 text-sm mb-2">
